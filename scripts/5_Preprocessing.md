@@ -1,2 +1,3 @@
 # Preprocessing
 The script `ReorganizeTables.R` was used for the preparation of the metagenomic and metatranscriptomic dataset to ensure that both datasets follow the same structure and format, allowing for combined analyses. The table counttable_metatranscr01_genus_new.csv was obtained from the study of Heck et al. (2023). All further tables used are available in the folder `Data`.
+The script `RemoveQuintuplets.R` was used to prepare and clean metagenomic and metatranscriptomic count tables before statistical analyses. The goal was to standardize data formatting, remove low-abundance taxa (singletons to quintuplets), and merge data for analyses.
