@@ -1,5 +1,5 @@
 ########################################### Viral PERMANOVA ##########################################
-# Permanova tests if Metadata significantly influences the Beta diversity 
+
 ####################################
 ### Load Required Libraries
 #####################################
