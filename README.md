@@ -1,2 +1,3 @@
-# Hello
-Hier passiert was
+# The Role of the Viral Community Composition in Seasonal Dynamics of the Wastewater Microbiome
+This repository contains all scripts used in the data analysis for the paper of The Role of the Viral Community Composition in Seasonal Dynamics of the Wastewater Microbiome (DOI: to be provided). Our aim was to investigate the shaping factors of antibiotic resistance gene diversity in a wastewater microbiome by integrating viral, eukaryotic, and prokaryotic community data.
+To ensure full reproducibility of the workflow, the repository includes Bash scripts for data retrieval, preprocessing, and taxonomic assignment, as well as R scripts used for statistical analyses along with visualizations.
