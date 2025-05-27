@@ -94,3 +94,36 @@ done
 log_message "Kraken2 process finished."
 echo "All accessions were processed."
 ```
+All Kraken2 report files were combined into a single table using the following R script.
+```r
+#####################################
+### Load Required Libraries
+#####################################
+library(dplyr)
+
+#Create list with all Kraken2 report files in directory
+report_files <- list.files("/media/2tbhdd/Antonia/kraken2_output", pattern = "_kraken2_report.txt$", full.names = TRUE)
+
+#Create empty dataframe to save all data
+all_data <- data.frame()
+
+#go through files
+for (file in report_files) {
+  #read data
+  data <- read.table(file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+  
+  #name columns
+  colnames(data) <- c("Percentage", "Total_Reads", "Assigned_Reads", "Rank", "TaxID", "Taxon")
+  
+  #add column with accession numbers (SRR)
+  srr_id <- sub(".*/(SRR[0-9]+)_kraken2_report.txt", "\\1", file)
+  data$SRR_ID <- srr_id
+  
+  #combine data
+  all_data <- bind_rows(all_data, data)
+}
+
+#Save data as CSV
+combined_kraken2_report <- "/media/2tbhdd/Antonia/kraken2_output/combined_kraken2_report.csv"
+write.csv(all_data, combined_kraken2_report, row.names = FALSE)
+```
